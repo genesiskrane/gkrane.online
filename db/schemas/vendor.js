@@ -8,6 +8,9 @@ const vendorSchema = new mongoose.Schema(
 		vendor: { type: String, required: true },
 	},
 	{
+		timestamps: true,
+		methods: {},
+		statics: {},
 		virtuals: {
 			profile: {
 				get() {
@@ -19,8 +22,6 @@ const vendorSchema = new mongoose.Schema(
 				},
 			},
 		},
-		methods: {},
-		statics: {},
 	}
 );
 
