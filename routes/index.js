@@ -29,20 +29,18 @@ router.post("/register-vendor", controller.registerVendor);
 // krane
 
 router.get("/krane/get-app-data", (req, res) => {
-	const name = req.params.name;
+	const name = req.query.name;
 
 	apps.forEach((app) => {
 		app.apiURL = process.env.CORE;
 	});
 
-	console.log(req.params);
 	const app = apps.find((app) => app.name == name);
-	console.log(app);
 	res.json(app);
 });
 
 router.get("/krane/get-client-data", (req, res) => {
-	const name = req.params.name;
+	const name = req.query.name;
 
 	const apps = [
 		{
