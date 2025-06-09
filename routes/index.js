@@ -46,6 +46,12 @@ router.get("/krane/get-client-data", (req, res) => {
 				name: "Shop",
 			},
 		},
+		{
+			name: "Pro",
+			config: {
+				name: "Pro",
+			},
+		},
 	];
 
 	const app = apps.find((app) => app.name == name);
