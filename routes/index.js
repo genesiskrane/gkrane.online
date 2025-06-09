@@ -5,4 +5,5 @@ const controller = require("../controllers");
 // auth
 router.post("/register-vendor", controller.registerVendor);
 
+
 module.exports = router;
