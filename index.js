@@ -29,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api", router);
 
 app.get("/data", (req, res) => {
+	console.log(process.env.DATA);
 	res.json(JSON.parse(process.env.DATA));
 });
 
