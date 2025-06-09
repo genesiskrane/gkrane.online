@@ -28,17 +28,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
-app.get("/data", (req, res) => {
-	apps = JSON.parse(process.env.DATA);
-
-	apps.forEach((app) => {
-		app.apiURL = process.env.CORE;
-		app.exts = ["pro"];
-	});
-
-	res.json(apps);
-});
-
 app.get("/", (req, res) => {
 	res.json({
 		name: "GKrane API Server",

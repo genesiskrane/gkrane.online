@@ -8,7 +8,14 @@ router.post("/register-vendor", controller.registerVendor);
 // krane
 
 router.get("/get-app-data", (req, res) => {
-	res.json(JSON.parse(process.env.DATA)[1]);
+	apps = JSON.parse(process.env.DATA);
+
+	apps.forEach((app) => {
+		app.apiURL = process.env.CORE;
+		app.exts = ["pro"];
+	});
+
+	res.json(apps[1]);
 });
 
 module.exports = router;
