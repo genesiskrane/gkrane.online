@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
-const data = [
+const apps = [
 	{ name: "GKrane" },
 	{
 		name: "Kreative",
@@ -28,8 +28,6 @@ router.post("/register-vendor", controller.registerVendor);
 
 router.get("/krane/get-app-data", (req, res) => {
 	const name = req.params.name;
-
-	apps = JSON.parse(data);
 
 	apps.forEach((app) => {
 		app.apiURL = process.env.CORE;
