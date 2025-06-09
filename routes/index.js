@@ -9,6 +9,7 @@ const apps = [
 		repos: {
 			client: [{ name: "pro", repo: "https://github.com/genesiskrane/kreative" }],
 		},
+		exts: ["pro"],
 	},
 	{
 		name: "Mart",
@@ -18,6 +19,7 @@ const apps = [
 				{ name: "shop", repo: "https://github.com/genesiskrane/shop" },
 			],
 		},
+		exts: ["store", "shop"],
 	},
 ];
 
@@ -31,7 +33,6 @@ router.get("/krane/get-app-data", (req, res) => {
 
 	apps.forEach((app) => {
 		app.apiURL = process.env.CORE;
-		app.exts = ["pro"];
 	});
 
 	const app = apps.find((app) => app.name == name);
