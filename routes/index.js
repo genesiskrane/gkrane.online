@@ -35,7 +35,7 @@ router.get("/krane/get-app-data", (req, res) => {
 		app.apiURL = process.env.CORE;
 	});
 
-	console.log(name);
+	console.log(req.params);
 	const app = apps.find((app) => app.name == name);
 	console.log(app);
 	res.json(app);
