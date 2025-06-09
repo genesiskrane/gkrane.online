@@ -2,7 +2,7 @@ const connect = require("../db").connectToDatabase;
 
 const init = async () => {
     await connect();
-    console.log('nana')
+    console.info('Initialized')
 };
 
 module.exports = { init };
