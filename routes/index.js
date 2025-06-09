@@ -2,20 +2,42 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
+const data = [
+	{ name: "GKrane" },
+	{
+		name: "Kreative",
+		repos: {
+			client: [{ name: "pro", repo: "https://github.com/genesiskrane/kreative" }],
+		},
+	},
+	{
+		name: "Mart",
+		repos: {
+			client: [
+				{ name: "store", repo: "https://github.com/genesiskrane/store" },
+				{ name: "shop", repo: "https://github.com/genesiskrane/shop" },
+			],
+		},
+	},
+];
+
 // auth
 router.post("/register-vendor", controller.registerVendor);
 
 // krane
 
 router.get("/krane/get-app-data", (req, res) => {
-	apps = JSON.parse(process.env.DATA);
+	const name = req.params.name;
+
+	apps = JSON.parse(data);
 
 	apps.forEach((app) => {
 		app.apiURL = process.env.CORE;
 		app.exts = ["pro"];
 	});
 
-	res.json(apps[1]);
+	const app = apps.find((app) => app.name == name);
+	res.json(app);
 });
 
 router.get("/krane/get-client-data", (req, res) => {
