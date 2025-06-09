@@ -35,7 +35,9 @@ router.get("/krane/get-app-data", (req, res) => {
 		app.apiURL = process.env.CORE;
 	});
 
+	console.log(name);
 	const app = apps.find((app) => app.name == name);
+	console.log(app);
 	res.json(app);
 });
 
@@ -76,7 +78,6 @@ router.get("/krane/get-client-data", (req, res) => {
 	];
 
 	const app = apps.find((app) => app.name == name);
-	console.log(name);
 	res.json(app);
 });
 
