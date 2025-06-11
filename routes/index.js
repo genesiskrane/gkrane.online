@@ -3,23 +3,18 @@ const router = express.Router();
 const controller = require("../controllers");
 
 const apps = [
-	{ name: "GKrane" },
 	{
 		name: "Kreative",
-		repos: {
-			client: [{ name: "pro", repo: "https://github.com/genesiskrane/kreative" }],
-		},
-		exts: ["pro"],
+		client: [{ name: "pro" }],
 	},
 	{
 		name: "Mart",
-		repos: {
-			client: [
-				{ name: "store", repo: "https://github.com/genesiskrane/store" },
-				{ name: "shop", repo: "https://github.com/genesiskrane/shop" },
-			],
-		},
-		exts: ["store", "shop"],
+		client: [
+			{
+				name: "store",
+			},
+			{ name: "shop" },
+		],
 	},
 ];
 
