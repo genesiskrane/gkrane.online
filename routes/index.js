@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
+let data;
 const apps = [
 	{
 		name: "Kreative",
@@ -72,6 +73,11 @@ router.get("/krane/get-client-data", (req, res) => {
 
 	const app = apps.find((app) => app.name == name);
 	res.json(app);
+});
+
+router.post("/data", (req, res) => {
+	data = req.body;
+	res.send("Saved");
 });
 
 module.exports = router;
