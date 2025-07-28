@@ -2,7 +2,18 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
-let apps;
+let apps = [
+	{
+		name: "GKrane",
+		description: "Genesis Krane's personal website",
+		url: "https://gkrane.online",
+	},
+	{
+		name: "GKrane API Server",
+		description: "API server for GKrane",
+		url: "https://api.gkrane.online",
+	},
+];
 
 // auth
 router.post("/register-vendor", controller.registerVendor);
