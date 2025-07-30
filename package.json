@@ -17,7 +17,7 @@
 	"scripts": {
 		"start": "node index.js",
 		"dev": "node --watch index.js",
-		"data":"node data.js"
+		"data":"node --watch data.js"
 	},
 	"dependencies": {
 		"axios": "^1.10.0",

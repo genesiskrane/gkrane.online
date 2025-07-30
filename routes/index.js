@@ -7,7 +7,7 @@ let data;
 // auth
 router.post("/register-vendor", controller.registerVendor);
 
-router.post("/data", (req, res) => {
+router.post("/CP/data", (req, res) => {
   data = req.body;
   res.send("Data Saved");
 });
