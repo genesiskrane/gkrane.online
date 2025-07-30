@@ -3,7 +3,9 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
-let data, secret, password;
+let data;
+let secret;
+let password;
 
 // This script builds the server files and accesses a secret from Google Cloud Secret Manager
 const client = new SecretManagerServiceClient();
@@ -29,7 +31,7 @@ getSecret("SECRET")
 getSecret("MONGODB_PASSWORD")
   .then((secretValue) => {
     password = secretValue;
-    console.log("Secret retrieved successfully:");
+    console.log("Password retrieved successfully:");
   })
   .catch((err) => {
     console.error("Failed to retrieve secret:", err);
