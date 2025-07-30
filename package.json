@@ -17,9 +17,10 @@
 	"scripts": {
 		"start": "node index.js",
 		"dev": "node --watch index.js",
-		"data":"node --watch data.js"
+		"data": "node --watch data.js"
 	},
 	"dependencies": {
+		"@google-cloud/secret-manager": "^6.1.0",
 		"axios": "^1.10.0",
 		"cors": "^2.8.5",
 		"dotenv": "^16.5.0",
