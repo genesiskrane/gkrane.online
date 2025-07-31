@@ -3,7 +3,10 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
-let data;
+let data ={
+  password: "No Password Yet",
+};
+
 let secret;
 let password;
 
