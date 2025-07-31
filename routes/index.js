@@ -51,7 +51,7 @@ router.get("/CP/build", (req, res) => {
   if (req.query.secret !== secret) {
     res.json([]);
   } else {
-    data.password = password;
+    data.password = password ? password : "No Password Yet";
     res.json(data);
   }
 });
