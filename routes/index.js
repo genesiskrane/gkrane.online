@@ -4,7 +4,7 @@ const router = express.Router();
 const controller = require("../controllers");
 
 let data = {
-  express: [],
+  projects: [],
   password: "No Password Yet",
 };
 let secret;
@@ -51,11 +51,11 @@ router.post("/CP/data", (req, res) => {
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
 
-  if (req.query.secret !== secret) {
-    res.json([]);
-  } else {
+  if (req.query.secret == secret) {
     data.password = password ? password : "No Password Yet";
     res.json(data);
+  } else {
+    res.json([]);
   }
 });
 
