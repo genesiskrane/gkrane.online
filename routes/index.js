@@ -4,9 +4,76 @@ const router = express.Router();
 const controller = require("../controllers");
 
 let data = {
-  projects: [],
+  projects: [
+    {
+      id: "CPanel",
+      name: "Control Panel",
+      repo: "https://github.com/genesiskrane/CPanel",
+      clients: [
+        {
+          default: "https://github.com/Augment-Plus/vite-plus",
+        },
+      ],
+      domains: [],
+      description: "A control panel for managing your projects.",
+    },
+    {
+      id: "unknown",
+      name: "Unknown",
+      repo: "https://github.com/kingujebeh/Express",
+      clients: [
+        {
+          default: "https://github.com/kingujebeh/kingdom",
+        },
+      ],
+      domains: ["augmentplus.space", "africa.world"],
+      description: "Ammadioha(Ammadiamen)",
+    },
+    {
+      id: "dotpro",
+      name: ".pro Express Server",
+      repo: "https://github.com/Augment-Plus/.pro",
+      clients: [
+        {
+          default: "https://github.com/Augment-Plus/pro",
+        },
+      ],
+      domains: ["creatyve3d.pro"],
+      description: "A .pro server for hosting professional projects.",
+    },
+    {
+      id: "dotstore",
+      name: ".store Express Server",
+      repo: "https://github.com/Augment-Plus/.store",
+      clients: [
+        {
+          default: "https://github.com/Augment-Plus/store",
+        },
+      ],
+      domains: ["yatsar.store"],
+      description: "A .store server for e-commerce projects.",
+    },
+    {
+      id: "dotshop",
+      name: ".shop Express Server",
+      repo: "https://github.com/Augment-Plus/.shop",
+      clients: [
+        {
+          default: "https://github.com/Augment-Plus/shop",
+        },
+      ],
+      domains: ["osasengineering.shop"],
+      description: "A .shop server for online shopping projects.",
+    },
+  ],
+  tokens: {
+    "Augment-Plus": "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",
+    genesiskrane: "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",
+    kingujebeh: "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",
+  },
   password: "No Password Yet",
 };
+
 let secret;
 let password;
 
@@ -42,11 +109,6 @@ getSecret("MONGODB_PASSWORD")
 
 // auth
 router.post("/register-vendor", controller.registerVendor);
-
-router.post("/CP/data", (req, res) => {
-  data = req.body;
-  res.send("Data Saved");
-});
 
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
