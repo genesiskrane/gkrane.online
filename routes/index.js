@@ -115,7 +115,6 @@ async function getSecret(secretName) {
   for (secret of secrets) {
     let secretValue = await getSecret(secret.name);
     secret.value = secretValue;
-    console.log(secret.value);
   }
 })();
 
@@ -124,13 +123,13 @@ router.post("/register-vendor", controller.registerVendor);
 
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
-
+  
   if (
     req.query.secret == secrets.find((secret) => secret.name == "SECRET").value
   ) {
     data.password = password
-      ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
-      : "No Password Yet";
+    ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
+    : "No Password Yet";
     res.json(data);
   } else {
     res.json([]);
