@@ -127,9 +127,9 @@ router.get("/CP/build", (req, res) => {
   if (
     req.query.secret === secrets.find((secret) => secret.name == "SECRET").value
   ) {
-    data.password = password
-      ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
-      : "No Password Yet";
+    data.password = secrets.find(
+      (secret) => secret.name == "MONGODB_PASSWORD"
+    ).value;
     res.json(data);
   } else {
     res.json([]);
