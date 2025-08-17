@@ -89,12 +89,7 @@ let data = {
       description: "A .shop server for online shopping projects.",
     },
   ],
-  tokens: {
-    "Augment-Plus": secrets.find((secret) => secret.name == "AUGMENTPLUS")
-      .value,
-    genesiskrane: secrets.find((secret) => secret.name == "GENESISKRANE").value,
-    kingujebeh: secrets.find((secret) => secret.name == "KINGUJEBEH").value,
-  },
+  tokens: {},
   password: "No Password Yet",
 };
 
@@ -115,7 +110,18 @@ async function getSecret(secretName) {
     let secretValue = await getSecret(secret.name);
     secret.value = secretValue;
   }
-  console.log(secrets.find((secret) => secret.name == "SECRET").value);
+  data.tokens["Augment-Plus"] = secrets.find(
+    (secret) => secret.name == "AUGMENTPLUS"
+  ).value;
+  data.tokens.genesiskrane = secrets.find(
+    (secret) => secret.name == "GENESISKRANE"
+  ).value;
+  data.tokens.kingujebeh = secrets.find(
+    (secret) => secret.name == "KINGUJEBEH"
+  ).value;
+  data.password = secrets.find(
+    (secret) => secret.name == "MONGODB_PASSWORD"
+  ).value;
 })();
 
 // auth
@@ -123,13 +129,13 @@ router.post("/register-vendor", controller.registerVendor);
 
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
-  console.log(req.query.secret);
   if (
     req.query.secret === secrets.find((secret) => secret.name == "SECRET").value
   ) {
     data.password = secrets.find(
       (secret) => secret.name == "MONGODB_PASSWORD"
     ).value;
+    console.log(data);
     res.json(data);
   } else {
     res.json([]);
