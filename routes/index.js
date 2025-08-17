@@ -123,7 +123,7 @@ router.post("/register-vendor", controller.registerVendor);
 
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
-  console.log(req.query);
+  console.log(req.query.secret);
   if (
     req.query.secret === secrets.find((secret) => secret.name == "SECRET").value
   ) {
