@@ -53,6 +53,18 @@ let data = {
       description: "Ammadioha(Ammadiamen)",
     },
     {
+      id: "currency",
+      name: "Currency",
+      repo: "https://github.com/kingujebeh/currency",
+      clients: [
+        {
+          default: "https://github.com/kingujebeh/kingdom",
+        },
+      ],
+      domains: ["marblelimit.com"],
+      description: "Currency",
+    },
+    {
       id: "dotpro",
       name: ".pro Express Server",
       repo: "https://github.com/Augment-Plus/.pro",
