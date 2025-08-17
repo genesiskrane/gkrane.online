@@ -3,6 +3,29 @@ const express = require("express");
 const router = express.Router();
 const controller = require("../controllers");
 
+let secrets = [
+  {
+    id: "secret",
+    name: "SECRET",
+  },
+  {
+    id: "password",
+    name: "MONGODB_PASSWORD",
+  },
+  {
+    id: "kingujebeh",
+    name: "KINGUJEBEH",
+  },
+  {
+    id: "augmentplus",
+    name: "AUGMENTPLUS",
+  },
+  {
+    id: "genesiskrane",
+    name: "GENESISKRANE",
+  },
+];
+
 let data = {
   projects: [
     {
@@ -67,15 +90,14 @@ let data = {
     },
   ],
   tokens: {
-    "Augment-Plus": "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",
-    genesiskrane: "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",
-    kingujebeh: "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",
+    "Augment-Plus": secrets.find((secret) => secret.name == "AUGMENTPLUS")
+      .value,
+    genesiskrane: secrets.find((secret) => secret.name == "GENESISKRANE").value,
+    kingujebeh: secrets.find((secret) => secret.name == "KINGUJEBEH").value,
   },
   password: "No Password Yet",
 };
 
-let secret;
-let password;
 
 // This script builds the server files and accesses a secret from Google Cloud Secret Manager
 const client = new SecretManagerServiceClient();
@@ -89,23 +111,13 @@ async function getSecret(secretName) {
   return payload;
 }
 
-getSecret("SECRET")
-  .then((secretValue) => {
-    secret = secretValue;
-    console.log("Secret retrieved successfully:");
-  })
-  .catch((err) => {
-    console.error("Failed to retrieve secret:", err);
-  });
-
-getSecret("MONGODB_PASSWORD")
-  .then((secretValue) => {
-    password = secretValue;
-    console.log("Password retrieved successfully:");
-  })
-  .catch((err) => {
-    console.error("Failed to retrieve secret:", err);
-  });
+(async () => {
+  for (secret of secrets) {
+    let secretValue = await getSecret(secret.name);
+    secret.value = secretValue;
+    console.log(secret.value);
+  }
+})();
 
 // auth
 router.post("/register-vendor", controller.registerVendor);
@@ -113,8 +125,12 @@ router.post("/register-vendor", controller.registerVendor);
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
 
-  if (req.query.secret == secret) {
-    data.password = password ? password : "No Password Yet";
+  if (
+    req.query.secret == secrets.find((secret) => secret.name == "SECRET").value
+  ) {
+    data.password = password
+      ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
+      : "No Password Yet";
     res.json(data);
   } else {
     res.json([]);
