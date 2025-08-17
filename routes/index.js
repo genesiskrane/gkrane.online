@@ -98,7 +98,6 @@ let data = {
   password: "No Password Yet",
 };
 
-
 // This script builds the server files and accesses a secret from Google Cloud Secret Manager
 const client = new SecretManagerServiceClient();
 
@@ -116,6 +115,7 @@ async function getSecret(secretName) {
     let secretValue = await getSecret(secret.name);
     secret.value = secretValue;
   }
+  console.log(secrets.find((secret) => secret.name == "SECRET").value);
 })();
 
 // auth
@@ -123,13 +123,13 @@ router.post("/register-vendor", controller.registerVendor);
 
 router.get("/CP/build", (req, res) => {
   // Send All Project Data
-  
+  console.log(req.query);
   if (
-    req.query.secret == secrets.find((secret) => secret.name == "SECRET").value
+    req.query.secret === secrets.find((secret) => secret.name == "SECRET").value
   ) {
     data.password = password
-    ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
-    : "No Password Yet";
+      ? secrets.find((secret) => secret.name == "MONGODB_PASSWORD").value
+      : "No Password Yet";
     res.json(data);
   } else {
     res.json([]);
