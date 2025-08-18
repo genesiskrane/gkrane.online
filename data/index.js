@@ -13,6 +13,18 @@ const data = {
       description: "A control panel for managing your projects.",
     },
     {
+      id: "wa-admin",
+      name: "WA Admin",
+      repo: "https://github.com/genesiskrane/wa-admin.one",
+      clients: [
+        {
+          default: "https://github.com/genesiskrane/wa-admin",
+        },
+      ],
+      domains: [],
+      description: "A Whatsapp Automation Manager",
+    },
+    {
       id: "unknown",
       name: "Unknown",
       repo: "https://github.com/kingujebeh/Express",
