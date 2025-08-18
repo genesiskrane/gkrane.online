@@ -56,7 +56,7 @@ router.get("/users", (req, res) => {
   res.send(data.users);
 });
 
-router.post("/api/user/create", async (req, res) => {
+router.post("/user/create", async (req, res) => {
   res.send({
     uid: "123456789",
   });
