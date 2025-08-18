@@ -1,6 +1,7 @@
 require("./config");
 const { init } = require("./core");
 
+const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 const express = require("express");
@@ -11,11 +12,11 @@ const router = require("./routes");
 
 // HTTPS Redirect
 app.use((req, res, next) => {
-	if (process.env.NODE_ENV == "production")
-		if (req.headers["x-forwarded-proto"] !== "https") {
-			return res.redirect(`https://${req.headers.host}${req.url}`);
-		}
-	next();
+  if (process.env.NODE_ENV == "production")
+    if (req.headers["x-forwarded-proto"] !== "https") {
+      return res.redirect(`https://${req.headers.host}${req.url}`);
+    }
+  next();
 });
 
 app.set("trust proxy", true);
@@ -28,23 +29,23 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", router);
 
+app.use(express.static(path.join(__dirname, "client", "dist")));
+
 app.get("/", (req, res) => {
-	res.json({
-		name: "GKrane API Server",
-	});
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 // Catch All
 app.all("/{*any}", (req, res) => {
-	res.json({});
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 7000;
 
 (async () => {
-	await init();
+  await init();
 
-	app.listen(PORT, () => {
-		console.log(`Server Started @ ${PORT}`);
-	});
+  app.listen(PORT, () => {
+    console.log(`Server Started @ ${PORT}`);
+  });
 })();
