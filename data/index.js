@@ -21,7 +21,7 @@ const data = {
           default: "https://github.com/genesiskrane/wa-admin",
         },
       ],
-      domains: [],
+      domains: ["wa-admin.one"],
       description: "A Whatsapp Automation Manager",
     },
     {
