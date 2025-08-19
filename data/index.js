@@ -33,7 +33,7 @@ const data = {
           default: "https://github.com/kingujebeh/kingdom",
         },
       ],
-      domains: ["augmentplus.space", "africa.world"],
+      domains: ["augmentplus.space", "africa.world", "marblelimit.com"],
       description: "Ammadioha(Ammadiamen)",
     },
     {
@@ -45,7 +45,7 @@ const data = {
           default: "https://github.com/kingujebeh/kingdom",
         },
       ],
-      domains: ["marblelimit.com"],
+      domains: ["soccerclues.site"],
       description: "Currency",
     },
     {
