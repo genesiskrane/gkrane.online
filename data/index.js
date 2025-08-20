@@ -30,7 +30,8 @@ const data = {
       repo: "https://github.com/kingujebeh/Express",
       clients: [
         {
-          default: "https://github.com/kingujebeh/kingdom",
+          kingdom: "https://github.com/kingujebeh/kingdom",
+          community: "https://github.com/kingujebeh/community",
         },
       ],
       domains: ["augmentplus.space", "africa.world", "marblelimit.com"],
