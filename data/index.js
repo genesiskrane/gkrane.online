@@ -21,7 +21,7 @@ const data = {
           default: "https://github.com/genesiskrane/wa-admin",
         },
       ],
-      domains: ["wa-admin.one"],
+      domains: [""],
       description: "A Whatsapp Automation Manager",
     },
     {
@@ -30,11 +30,18 @@ const data = {
       repo: "https://github.com/kingujebeh/Express",
       clients: [
         {
-          kingdom: "https://github.com/kingujebeh/kingdom",
-          community: "https://github.com/kingujebeh/community",
+          default: "https://github.com/kingujebeh/unknown",
         },
       ],
-      domains: ["augmentplus.space", "africa.world", "marblelimit.com"],
+      domains: [
+        "augmentplus.space",
+        "africa.world",
+        "marblelimit.com",
+        "creatyve3d.pro",
+        "yatsar.store",
+        "wa-admin.one",
+        "osasengineering.shop",
+      ],
       description: "Ammadioha(Ammadiamen)",
     },
     {
@@ -58,7 +65,7 @@ const data = {
           default: "https://github.com/Augment-Plus/pro",
         },
       ],
-      domains: ["creatyve3d.pro"],
+      domains: [],
       description: "A .pro server for hosting professional projects.",
     },
     {
@@ -70,7 +77,7 @@ const data = {
           default: "https://github.com/Augment-Plus/store",
         },
       ],
-      domains: ["yatsar.store"],
+      domains: [],
       description: "A .store server for e-commerce projects.",
     },
     {
@@ -82,7 +89,7 @@ const data = {
           default: "https://github.com/Augment-Plus/shop",
         },
       ],
-      domains: ["osasengineering.shop"],
+      domains: [""],
       description: "A .shop server for online shopping projects.",
     },
   ],
@@ -111,7 +118,7 @@ const data = {
     {
       firstName: "Nicholas",
       lastName: "Uwajeh",
-      email: "nicholasuwajeh@gmail.com",
+      email: "uwajehnicholas@gmail.com",
     },
     {
       firstName: "Elizabeth",
