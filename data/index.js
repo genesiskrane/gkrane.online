@@ -1,30 +1,6 @@
 const data = {
   projects: [
     {
-      id: "CPanel",
-      name: "Control Panel",
-      repo: "https://github.com/genesiskrane/CPanel",
-      clients: [
-        {
-          default: "https://github.com/Augment-Plus/vite-plus",
-        },
-      ],
-      domains: [],
-      description: "A control panel for managing your projects.",
-    },
-    {
-      id: "wa-admin",
-      name: "WA Admin",
-      repo: "https://github.com/genesiskrane/wa-admin.one",
-      clients: [
-        {
-          default: "https://github.com/genesiskrane/wa-admin",
-        },
-      ],
-      domains: [""],
-      description: "A Whatsapp Automation Manager",
-    },
-    {
       id: "unknown",
       name: "Unknown",
       repo: "https://github.com/kingujebeh/Express",
@@ -55,42 +31,6 @@ const data = {
       ],
       domains: ["soccerclues.site"],
       description: "Currency",
-    },
-    {
-      id: "dotpro",
-      name: ".pro Express Server",
-      repo: "https://github.com/Augment-Plus/.pro",
-      clients: [
-        {
-          default: "https://github.com/Augment-Plus/pro",
-        },
-      ],
-      domains: [],
-      description: "A .pro server for hosting professional projects.",
-    },
-    {
-      id: "dotstore",
-      name: ".store Express Server",
-      repo: "https://github.com/Augment-Plus/.store",
-      clients: [
-        {
-          default: "https://github.com/Augment-Plus/store",
-        },
-      ],
-      domains: [],
-      description: "A .store server for e-commerce projects.",
-    },
-    {
-      id: "dotshop",
-      name: ".shop Express Server",
-      repo: "https://github.com/Augment-Plus/.shop",
-      clients: [
-        {
-          default: "https://github.com/Augment-Plus/shop",
-        },
-      ],
-      domains: [""],
-      description: "A .shop server for online shopping projects.",
     },
   ],
 
